@@ -1,0 +1,11 @@
+FROM node:24
+
+RUN mkdir /ejemplo
+
+RUN touch /ejemplo/prueba.txt
+
+ENV PORT=9256
+
+CMD [ "npm", "run", "start:dev" ]
+
+COPY package.json /ejemplo/package.json
