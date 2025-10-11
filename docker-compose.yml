@@ -1,0 +1,19 @@
+services:
+  nuevo-1:
+    image: prueba:node-con-carpeta-ejemplo
+    working_dir: /prueba
+    environment:
+      - PRUEBA=jorge
+    ports:
+      - 7300:9256
+    volumes:
+      - '.:/prueba'
+    command: ["npm", "run", "start:dev"]
+
+  nuevo-2:
+    build:
+      context: .
+    environment:
+      - PRUEBA=Jorge
+    ports:
+      - 9000:3000
