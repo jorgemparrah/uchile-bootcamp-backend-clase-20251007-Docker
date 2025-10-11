@@ -1,11 +1,12 @@
 services:
   nuevo-1:
-    image: prueba:node-con-carpeta-ejemplo
+    image: prueba:${VERSION_IMAGEN_DOCKER}
     working_dir: /prueba
     environment:
-      - PRUEBA=jorge
+      - PORT=${PUERTO_NODE}
+      - PRUEBA=${VAR_PRUEBA}
     ports:
-      - 7300:9256
+      - ${PUERTO_LOCAL_NODE}:${PUERTO_NODE}
     volumes:
       - '.:/prueba'
     command: ["npm", "run", "start:dev"]
@@ -16,4 +17,4 @@ services:
     environment:
       - PRUEBA=Jorge
     ports:
-      - 9000:3000
+      - 9000:${PUERTO_NODE}
